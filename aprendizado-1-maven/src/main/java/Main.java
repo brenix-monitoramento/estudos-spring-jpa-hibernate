@@ -4,13 +4,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         var pessoa1 = new Pessoa(1, "Breno", "breno@mail.com");
         var pessoa2 = new Pessoa(2, "Luana", "luana@mail.com");
-        var pessoa3 = new Pessoa(1, "Carlos", "carlos@mail.com");
+        var pessoa3 = new Pessoa(3, "Carlos", "carlos@mail.com");
 
         // faz conexão com o banco pelo nome dele definido no arquivo persistence
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("aprendizado-1-maven");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("meu-banco");
 
         // cria o gerenciador de entidades
         EntityManager em = emf.createEntityManager();
