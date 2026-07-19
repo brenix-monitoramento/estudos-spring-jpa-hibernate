@@ -2,6 +2,9 @@ package com.projetos.projeto_curso.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "\"user\"")
 public class User {
@@ -12,6 +15,8 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders = new ArrayList<>();
 
     public User() {
     }
@@ -62,5 +67,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Order> getOrders() {
+        return this.orders;
     }
 }
