@@ -1,10 +1,6 @@
 package com.projetos.projeto_curso.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "\"user\"")
@@ -16,6 +12,9 @@ public class User {
     private String email;
     private String phone;
     private String password;
+
+    public User() {
+    }
 
     public User(Long id, String name, String email, String phone, String password) {
         this.id = id;
