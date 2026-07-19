@@ -1,5 +1,6 @@
 package com.projetos.projeto_curso.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>();
 
