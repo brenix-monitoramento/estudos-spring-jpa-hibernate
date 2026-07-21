@@ -2,6 +2,7 @@ package com.projetos.projeto_curso.config;
 
 import com.projetos.projeto_curso.entities.Order;
 import com.projetos.projeto_curso.entities.User;
+import com.projetos.projeto_curso.enums.OrderStatus;
 import com.projetos.projeto_curso.repositories.OrderRepository;
 import com.projetos.projeto_curso.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,9 @@ public class TestConfig implements CommandLineRunner {
         User userTwo = new User(null, "Marie", "marie@mail.com", "6576576", "567abc");
 
         // Instâncias de pedidos
-        Order orderOne = new Order(null, Instant.now(), userOne);
-        Order orderTwo = new Order(null, Instant.now(), userOne);
-        Order orderThree = new Order(null, Instant.now(), userTwo);
+        Order orderOne = new Order(null, Instant.now(), OrderStatus.WAITING_PAYMENT, userOne);
+        Order orderTwo = new Order(null, Instant.now(), OrderStatus.CANCELED, userOne);
+        Order orderThree = new Order(null, Instant.now(), OrderStatus.DELIVERED, userTwo);
 
         userRepository.saveAll(Arrays.asList(userOne, userTwo));
         orderRepository.saveAll(Arrays.asList(orderOne, orderTwo, orderThree));
